@@ -1,0 +1,64 @@
+\subsection{Dinic}
+\begin{lstlisting}
+struct e_t{ 
+	int to, cap, rev;
+	e_t(int to, int cap, int rev):to(to), cap(cap), rev(rev){}
+};
+
+template<int SZ>
+class Dinic{
+public:
+	vector<e_t> a[SZ+10];
+	int lev[SZ+10], done[SZ+10];	
+	int s, t;
+
+	bool levelize(){
+		queue<int> q; fill(lev, -1);
+		q.push(s), lev[s]=0;
+		while (!q.empty()){
+			int i=q.front(); q.pop();
+			rep(k, sz(a[i])){
+				e_t e=a[i][k];
+				if (!e.cap || lev[e.to]!=-1) continue;
+				lev[e.to] = lev[i] + 1;
+				q.push(e.to);
+			}
+		}
+		return lev[t]!=-1;
+	}
+
+	int augment(int v, int f){
+		if (v==t || !f) return f;
+		for (; done[v] <sz(a[v]); ++done[v]){
+			e_t &e = a[v][done[v]];
+			if (lev[e.to] < lev[v] || !e.cap) continue;
+			int t = augment(e.to, min(f, e.cap));
+			if (t){
+				e.cap -= t;
+				a[e.to][e.rev].cap += t;
+				return t;
+			}
+		}
+		return 0;
+	}
+
+	void clear(){
+		rep(i, SZ) a[i].clear();
+	}
+
+	void add(int i, int j, int c){
+		a[i].pb(e_t(j, c, sz(a[j])));
+		a[j].pb(e_t(i, 0, sz(a[i])-1));
+	}
+
+	int maxFlow(){
+		int tot=0, tmp;
+		while (levelize()){
+			fill(done, 0);
+			while (tmp = augment(s, INF))
+				tot += tmp;
+		}
+		return tot;
+	}
+};
+\end{lstlisting}

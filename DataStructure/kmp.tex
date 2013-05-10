@@ -1,0 +1,14 @@
+\subsection{KMP}
+\begin{lstlisting}
+char s[N+10];
+int f[N+10];
+
+void getFail(char *s, int *f, int n){
+    f[0]=f[1]=0; 
+    repf(i, 1, n-1){
+        int j=f[i];
+        while (j && s[i]!=s[j]) j=f[j];
+        f[i+1]= s[i]==s[j]? j+1: 0;
+    }
+}
+\end{lstlisting}

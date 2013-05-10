@@ -1,0 +1,19 @@
+\subsection{vimrc}
+\begin{lstlisting}
+set mouse=a
+set nu
+set history=4000
+set backspace=2
+set sw=4
+set ts=4
+set cindent
+syntax on
+
+func! R()
+	exec ":w"
+	exec "!clear&&g++ %<.cpp -o %<"
+	exec "!./%<"
+endfunc
+
+:map<F9> :call R()<CR>
+\end{lstlisting}

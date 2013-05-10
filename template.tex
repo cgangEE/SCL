@@ -1,0 +1,51 @@
+\documentclass[7pt, a4paper, fleqn]{article}
+\usepackage{listings}
+\lstset
+{   language=c++, basicstyle=\ttfamily\footnotesize, keywordstyle=\ttfamily\footnotesize, ndkeywordstyle=\ttfamily\footnotesize,
+	identifierstyle=\ttfamily\footnotesize,stringstyle=\ttfamily\footnotesize,showstringspaces=false,breaklines=true}
+
+\begin{document}
+%=====================================title page=======================================================	
+	\begin{titlepage}
+	\begin{center} 
+		\vspace*{120pt}  \textsc{\LARGE Standard Code Library}
+		\vspace{20pt}
+		\rule{13cm}{0.05em}
+		\vspace{50pt}
+		\begin{flushright}
+			\emph{Chen Gang}\\
+			School of Informaton Engineering\\
+			Zhengzhou University\\
+		\end{flushright}
+		\vfill
+		{\large \today}
+	\end{center}
+	\end{titlepage}
+%=====================================main page==========================================================	
+	\tableofcontents
+	\clearpage
+	
+	\input BasicAlgorithm.tex
+	\clearpage
+
+	\input GraphTheorem.tex
+	\clearpage
+
+	\input DataStructure.tex
+	\clearpage
+
+	\input Search.tex
+	\clearpage
+
+	\input DP.tex
+	\clearpage
+
+	\input Math.tex
+	\clearpage
+
+	\input ComputationalGeometry.tex
+	\clearpage
+
+	\input Others.tex
+	\clearpage
+\end{document}

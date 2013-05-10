@@ -1,0 +1,17 @@
+\subsection{Union-Find Set}
+\begin{lstlisting}
+template<int SZ>
+class UFS{
+    int f[SZ+10];
+public:
+    void clear(){ rep(i, SZ+10) f[i]=i; }
+    int find(int i){
+        if (f[i]==i) return i;
+        return f[i]=find(f[i]);
+    }
+    void unions(int i, int j){
+        i=find(i), j=find(j);
+        f[i]=j;
+    }
+};
+\end{lstlisting}

@@ -1,0 +1,54 @@
+\subsection{Big Number}
+\begin{lstlisting}
+struct bigNum{
+	static const int L=1000;
+	int it[L+10];
+	bigNum(){
+		fill(it, 0), it[0]=1;
+	}
+	bigNum(int n){
+		fill(it, 0);
+		while (n){
+			it[++it[0]]=n%10;
+			n/=10;
+		}
+		if (!it[0]) it[0]=1;
+	}
+	bigNum operator +(const bigNum & b)const{
+		bigNum ret;
+		ret.it[0]=max(it[0], b.it[0])+1;
+		repf(i, 1, ret.it[0]){
+			ret.it[i]+=it[i]+b.it[i];
+			ret.it[i+1]+=ret.it[i]/10;
+			ret.it[i]%=10;
+		}
+		while (ret.it[0]>1 && ret.it[ret.it[0]]==0) ret.it[0]--;
+		return ret;
+	}
+	bigNum operator -(const bigNum & b)const{
+		bigNum ret;
+		ret.it[0]=it[0];
+		repf(i, 1, ret.it[0]){
+			ret.it[i]+=it[i]-b.it[i];
+			if (ret.it[i]<0)
+				ret.it[i]+=10, ret.it[i+1]--;
+		}
+		while (ret.it[0]>1 && ret.it[ret.it[0]]==0) ret.it[0]--;
+		return ret;
+	}
+	bigNum operator *(const bigNum & b)const{
+		bigNum ret;
+		ret.it[0]=it[0]+b.it[0];
+		repf(i, 1, it[0]) repf(j, 1, b.it[0])
+			ret.it[i+j-1]+=it[i]*b.it[j];
+		repf(i, 1, ret.it[0]) 
+			ret.it[i+1]+=ret.it[i]/10, ret.it[i]%=10;			
+		while (ret.it[0]>1 && ret.it[ret.it[0]]==0) ret.it[0]--;
+		return ret;
+	}
+	void out(){
+		repd(i, it[0], 1) printf("%d", it[i]);
+		putchar('\n');
+	}
+};
+\end{lstlisting}

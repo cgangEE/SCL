@@ -1,0 +1,27 @@
+\subsection{Hash Table}
+\begin{lstlisting}
+char str[N+10][S+10];
+
+template<int SZ>
+struct Hash{
+	int h[SZ+10];
+	H(){ clr(h, -1); }
+	int gao(char *s){
+		int ret=0, n=strlen(s);
+		rep(i, n) ret=(ret*131+s[i])%SZ;
+		return ret;
+	}
+	int find(char *s){
+		int k=gao(s);
+		while (h[k]!=-1 && strcmp(str[h[k]], s)!=0)
+			k=(k+1)%SZ;
+		return h[k];
+	}
+	void ins(char *s, int i){
+		int k=gao(s);
+		while (h[k]!=-1 && strcmp(str[h[k]], s)!=0)
+			k=(k+1)%SZ;
+		h[k]=i;
+	}
+};
+\end{lstlisting}

@@ -1,0 +1,11 @@
+\subsection{Intersection}
+\begin{lstlisting}
+bool Intersection(P p1, P p2, P p3, P p4, P &c){
+	double d1=(p2-p1)*(p3-p1), d2=(p2-p1)*(p4-p1);
+	double d3=(p4-p3)*(p1-p3), d4=(p4-p3)*(p2-p3);
+	int s1=sgn(d1), s2=sgn(d2), s3=sgn(d3), s4=sgn(d4);
+	if (s1*s2>0 || s3*s4>0) return false;
+	c=P((p3.x*d2-p4.x*d1)/(d2-d1), (p3.y*d2-p4.y*d1)/(d2-d1));
+	return true;
+}
+\end{lstlisting}

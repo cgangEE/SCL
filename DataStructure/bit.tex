@@ -1,0 +1,19 @@
+\subsection{Binary Indexed Tree}
+\begin{lstlisting}
+template <int SZ>
+struct BIT{
+    int a[SZ+10];
+public:
+    void clear(){ clr(a, 0); }
+    void ins(int x, int k){
+        while (x<=n)
+            a[x]+=k, x+=x&-x;
+    }
+    int qry(int x){
+        int ret=0;
+        while (x>0)
+            ret+=a[x], x-=x&-x;
+        return ret;
+    }
+};
+\end{lstlisting}

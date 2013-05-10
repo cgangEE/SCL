@@ -1,0 +1,36 @@
+\subsection{Strongly Connected Componenet}
+\begin{lstlisting}
+vi a[N+10];
+int dfn[N+10], low[N+10], num[N+10]; 
+int belong[N+10], s[N+10]; 
+bool inS[N+10]; 
+int Idx, now; 
+ 
+void tar(int i){ 
+	dfn[i]=low[i]=++now, s[++s[0]]=i, inS[i]=true;
+
+	rep(k, sz(a[i])){
+		int j=a[i][k];
+		if (!dfn[j])
+			tar(j), _checkmin(low[i], low[j]);
+		else if (inS[j])
+			_checkmin(low[i], dfn[j]);
+	}
+ 
+    if (low[i]==dfn[i]){ 
+        Idx++; 
+        do{ 
+            j=s[s[0]--]; 
+            belong[j]=Idx, num[Idx]++;
+            inS[j]=false; 
+        } 
+        while(j!=i);
+    } 
+} 
+
+void tar(){
+	now=Idx=s[0]=0;
+	clr(dfn, 0), clr(inS, 0), clr(num, 0);
+	repf(i, 1, n) if (!dfn[i]) tar(i);
+}
+\end{lstlisting}

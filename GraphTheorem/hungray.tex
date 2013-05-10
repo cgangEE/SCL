@@ -1,0 +1,29 @@
+\subsection{Hungray}
+\begin{lstlisting}
+vi a[N+10];
+int f[N+10], v[N+10];
+
+bool find(int i){
+	rep(j, sz(a[i])){
+		int k=a[i][j];
+		if (!v[k]){
+			v[k]=true;
+			if (!f[k] || find(f[k])){
+				f[k]=i;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+int hungray(){
+	int ret=0;
+	clr(f, 0);
+	repf(i, 1, n){
+		clr(v, 0);
+		if (find(i)) ret++;
+	}
+	return ret;
+}
+\end{lstlisting}

@@ -1,0 +1,18 @@
+\subsection{Mod Class C}
+\begin{lstlisting}
+template<class T>
+struct C{
+	static const T M=1000000007;
+	T x;
+	C(T _x){x=(x%M+M)%M;}
+	T anti()const{
+		T _x, _y;
+		exgcd(x, MOD, _x, _y);
+		return C(_x).x; 
+	}
+	C operator +(const C &c)const{ return C(x+c.x); }
+	C operator -(const C &c)const{ return C(x-c.x); }
+	C operator *(const C &c)const{ return C(x*c.x); }
+	C operator /(const C &c)const{ return C(x*c.anti()); }
+}
+\end{lstlisting}

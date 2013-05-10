@@ -1,0 +1,17 @@
+\subsection{Convex Hull}
+\begin{lstlisting}
+void ConvexHull(vp &a, vp &b){   
+    sort(all(a)); 
+    rep(i, n){
+        while (sz(b)>1 && (b[sz(b)-1]-b[sz(b)-2])*(a[i]-b[sz(b)-2])<=0) b.pop_back();
+        b.pb(a[i]);
+    }
+    int k=sz(b);
+    repd(i, n-2, 0){
+        while (sz(b)>k && (b[sz(b)-1]-b[sz(b)-2])*(a[i]-b[sz(b)-2])<=0) b.pop_back();
+        b.pb(a[i]);
+    }
+    if (sz(b)>1) b.pop_back();
+}
+
+\end{lstlisting}

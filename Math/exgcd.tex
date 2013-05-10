@@ -1,0 +1,10 @@
+\subsection{Extended Eucild}
+\begin{lstlisting}
+template <class T>
+T exgcd(T a, T b, T &x, T &y){
+	if (b==0) return x=1, y=0, a;
+	T ret=exgcd(b, a%b, x, y), t=x;
+	x=y, y=t-a/b*y;
+	return ret;
+}
+\end{lstlisting}

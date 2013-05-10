@@ -1,0 +1,42 @@
+\subsection{Segment Tree}
+\begin{lstlisting}
+#define lson i*2, x, z
+#define rson i*2+1, z+1, y
+
+template<int SZ>
+class SegTree{
+	int a[SZ*4+10], mod[SZ*4+10];
+	void update(int i){
+		a[i*2]=a[i*2+1]=mod[i*2]=mod[i*2+1]=mod[i];
+		mod[i]=0;
+	}
+public:
+	void clear(){ clr(a, 0), clr(mod, 0); }
+	void ins(int i, int x, int y, int l, int r, int c){
+		if (x==l && y==r){
+			a[i]=c;
+			mod[i]=c;
+			return;
+		}
+		if (mod[i]) update(i);
+
+		int z=mid(x,y);
+		if (r<=z) ins(lson, l, r, c);
+		else if (l>z) ins(rson, l, r, c);
+		else{
+			ins(lson, l, z, c);
+			ins(rson, z+1, r, c);
+		}
+		a[i]=a[i*2] | a[i*2+1];
+	}
+	int query(int i, int x, int y, int l, int r){
+		if (x==l && y==r) return a[i];
+		if (mod[i]) update(i);
+
+		int z=mid(x, y);
+		if (r<=z) return query(lson, l, r);
+		else if (l>z) return query(rson, l, r);
+		else return query(lson, l, z) | query(rson, z+1, r);
+	}
+};
+\end{lstlisting}

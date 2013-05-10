@@ -1,0 +1,31 @@
+\subsection{Dijkstra}
+\begin{lstlisting}
+struct P{
+	int i, d;
+	P(){}
+	P(int i, int d):i(i),d(d){}
+	bool operator < (const P&p)const{ return d>p.d; }
+};
+
+int d[N+10];
+bool done[N+10];
+vi a[N+10];
+
+void dijkstra(int s){
+	priority_queue<P> q; clr(d, -1), clr(done, 0);
+	q.push(P(s, 0)), d[s]=0, done[s]=true;
+	while (!q.empty()){
+		P p=q.top(); q.pop();
+		int i=p.i;
+		if (done[i]) continue;
+		done[i]=true;
+		rep(k, sz(a[i])){
+			j=a[i][k].to;
+			if (d[j]==-1 || d[j]>d[i]+a[i][k].w){
+				d[j]=d[i]+a[i][k].w;
+				q.push(P(j, d[j]));
+			}
+		}
+	}
+}
+\end{lstlisting}
