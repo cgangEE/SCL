@@ -1,0 +1,27 @@
+\subsection{Guess}
+\begin{lstlisting}
+void Guess(int n ,int m){
+	int k=0;
+	rep(i, n){
+		repf(j, k, m-1) if (a[j][i]){
+			rep(l, n+1) swap(a[k][l], a[j][l]);
+			break;
+		}
+		if (a[k][i]==0) continue;
+		rep(j, m) if (j!=k && a[j][i]){
+			int x=a[j][i], y=a[k][i];
+			rep(l, n+1) a[j][l]= ((a[j][l]*y-a[k][l]*x)%E+E)%E;
+		}
+		k++;
+	}
+	repf(i, k, m-1) if (a[i][n]){ 
+		puts("Inconsistent data."); return;
+	}
+	if (k<n){
+		puts("Multiple solutions."); return;
+	}
+	vi ans;
+	rep(i, n) ans.pb( (a[i][n]*op[a[i][i]])%E);
+	out(ans);	
+}
+\end{lstlisting}

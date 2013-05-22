@@ -1,0 +1,42 @@
+\subsection{Biconnected Component}
+\begin{lstlisting}
+vi a[N+10], bcc[N+10];
+int pre[N+10], bccno[N+10], low[N+10];
+bool iscut[N+10];
+int dfs_clock, bcc_cnt;
+stack<E> s;
+
+void dfs(int i, int fa){
+    pre[i]=low[i]=++dfs_clock;
+    int child=0;
+    rep(k, sz(a[i])){
+        int j=a[i][k];
+        if (!pre[j]){
+            s.push(E(i,j)), child++;
+            dfs(j, i), checkmin(low[i], low[j]);
+            if (low[j]>=pre[i]){
+                iscut[i]=true, bcc_cnt++, bcc[bcc_cnt].clear();
+                for(;;){
+                    E e=s.top(); s.pop();
+                    if (bccno[e.i]!=bcc_cnt) bcc[bcc_cnt].pb(e.i);
+                    if (bccno[e.j]!=bcc_cnt) bcc[bcc_cnt].pb(e.j);
+                    bccno[e.i]=bccno[e.j]=bcc_cnt;
+                    if (e.i==i && e.j==j) break;
+                }
+            }
+        }
+        else if (j!=fa && pre[j]<pre[i])
+            s.push(E(i,j)), checkmin(low[i], pre[j]);
+    }
+    if (fa<0 && child==1) iscut[i]=0;
+}
+
+
+void find_bcc(int n){
+    dfs_clock=bcc_cnt=0;
+    clr(pre, 0), clr(iscut, 0), clr(bccno, 0);
+	repf(i, 1, n) if (!pre[i])
+    	dfs(i, -1);
+}
+
+\end{lstlisting}

@@ -7,7 +7,7 @@ struct C{
 	C(T _x){x=(x%M+M)%M;}
 	T anti()const{
 		T _x, _y;
-		exgcd(x, MOD, _x, _y);
+		exgcd(x, M, _x, _y);
 		return C(_x).x; 
 	}
 	C operator +(const C &c)const{ return C(x+c.x); }

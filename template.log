@@ -1,10 +1,12 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.12.20)  10 MAY 2013 15:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.4.2)  10 MAY 2013 21:43
 entering extended mode
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**\catcode126=12 \def\normaltilde{~}\catcode126=13 \let~\normaltilde  \input ./
-template.tex
-(./template.tex (/usr/share/texmf-texlive/tex/latex/base/article.cls
+**template.tex
+(./template.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/fleqn.clo
 File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
@@ -100,18 +102,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `template.toc'.
 
 
-[1] (./BasicAlgorithm.tex) (./GraphTheorem.tex (./GraphTheorem/scc.tex)
-(./GraphTheorem/dijkstra.tex [2
+[1] (./BasicAlgorithm.tex) (./GraphTheorem.tex (./GraphTheorem/bcc.tex)
+(./GraphTheorem/scc.tex [2
 
 
-]) (./GraphTheorem/hungray.tex)
-(./GraphTheorem/dinic.tex [3]) (./GraphTheorem/mcmf.tex [4])) [5]
-(./DataStructure.tex (./DataStructure/ufs.tex) (./DataStructure/hash.tex)
-(./DataStructure/bit.tex [6
+]) (./GraphTheorem/dijkstra.tex)
+(./GraphTheorem/hungray.tex [3]) (./GraphTheorem/dinic.tex [4])
+(./GraphTheorem/mcmf.tex [5])) [6] (./DataStructure.tex
+(./DataStructure/ufs.tex) (./DataStructure/hash.tex) (./DataStructure/bit.tex
+[7
 
-]) (./DataStructure/segtree.tex)
-(./DataStructure/kmp.tex)) [7] (./Search.tex) (./DP.tex) (./Math.tex
-(./Math/exgcd.tex) (./Math/modclassc.tex)) [8
+]) (./DataStructure/segtree.tex) (./DataStructure/kmp.tex)) [8] (./Search.tex) 
+(./DP.tex) (./Math.tex (./Math/exgcd.tex) (./Math/modclassc.tex)
+(./Math/guess.tex)) [9
 
 
 
@@ -119,20 +122,20 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (./ComputationalGeometry/intersection.tex)
 (./ComputationalGeometry/point2segment.tex)
 (./ComputationalGeometry/point@polygon.tex)
-(./ComputationalGeometry/convexhull.tex)) [9
+(./ComputationalGeometry/convexhull.tex)) [10
 
 ] (./Others.tex
-(./Others/bignum.tex) (./Others/vimrc.tex [10
+(./Others/bignum.tex) (./Others/vimrc.tex [11
 
-])) [11] (./template.aux) ) 
+])) [12] (./template.aux) ) 
 Here is how much of TeX's memory you used:
- 2031 strings out of 493848
- 27052 string characters out of 1152822
- 252489 words of memory out of 3000000
- 5271 multiletter control sequences out of 15000+50000
+ 2075 strings out of 495061
+ 27485 string characters out of 1182622
+ 250983 words of memory out of 3000000
+ 5210 multiletter control sequences out of 15000+50000
  6741 words of font info for 25 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
- 33i,5n,58p,306b,1474s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28 hyphenation exceptions out of 8191
+ 33i,5n,58p,229b,1474s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfont
 s/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12
 .pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr
@@ -140,9 +143,9 @@ s/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12
 -texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fon
 ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/pu
 blic/amsfonts/cm/cmtt8.pfb>
-Output written on template.pdf (12 pages, 116032 bytes).
+Output written on template.pdf (13 pages, 119022 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
+ 73 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
