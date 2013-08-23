@@ -1,0 +1,45 @@
+\subsection{FFT}
+\begin{lstlisting}
+const double pi = acos(-1.0);
+struct vir{
+	double re, im;
+	vir(){}
+	vir(double re, double im):re(re),im(im){}
+	vir operator +(const vir &b){ return vir(re+b.re,im+b.im); }
+	vir operator -(const vir &b){ return vir(re-b.re,im-b.im); }
+	vir operator *(const vir &b){ return vir(re*b.re-im*b.im, re*b.im+im*b.re); }
+};
+
+void brc(vir *y, int l){
+	for (int i=1, j=l>>1; i<l-1; ++i){
+		if (i<j) swap(y[i], y[j]);
+		int k=l>>1;
+		while (j>=k) j-=k, k>>=1;
+		if (j<k) j+=k;
+	}
+}
+
+void fft(vir *y, int l, int on){
+	vir u, t;
+	brc(y, l);
+	for (int h=2; h<=l; h<<=1){
+		vir wn(cos(on*2*pi/h), sin(on*2*pi/h));
+		for (int j=0; j<l; j+=h){
+			vir w(1,0);
+			for (int k=j; k<j+h/2; ++k){
+				u=y[k];
+				t=w*y[k+h/2];
+				y[k]=u+t;
+				y[k+h/2]=u-t;
+				w=w*wn;
+			}
+		}
+	}
+	if (on==-1)
+		for (int i=0; i<l; ++i)
+			y[i].re/=l;
+}
+// fft(y, l, 1);
+// rep(i, l) y[i]=y[i]*y[i];
+// fft(y, l, -1);
+\end{lstlisting}
