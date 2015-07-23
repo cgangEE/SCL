@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {3.1}Extended Eucild}{9}
 \contentsline {subsection}{\numberline {3.2}Mod Class C}{9}
 \contentsline {subsection}{\numberline {3.3}Guess}{9}
-\contentsline {subsection}{\numberline {3.4}FFT}{9}
+\contentsline {subsection}{\numberline {3.4}FFT}{10}
 \contentsline {section}{\numberline {4}Computational Geometry}{11}
 \contentsline {subsection}{\numberline {4.1}Intersection}{11}
 \contentsline {subsection}{\numberline {4.2}Point to Segment}{11}

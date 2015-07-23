@@ -1,18 +1,32 @@
 \subsection{Mod Class C}
 \begin{lstlisting}
+template <class T>
+T exgcd(T a, T b, T &x, T &y){
+	if (b==0) return x=1, y=0, a;
+	T ret=exgcd(b, a%b, x, y), t=x;
+	x=y, y=t-a/b*y;
+	return ret;
+}
+
 template<class T>
 struct C{
 	static const T M=1000000007;
 	T x;
-	C(T _x){x=(x%M+M)%M;}
-	T anti()const{
+	C(){}
+	C(T _x){x=(_x%M+M)%M;}
+	C anti()const{
 		T _x, _y;
 		exgcd(x, M, _x, _y);
-		return C(_x).x; 
+		return C(_x);
 	}
 	C operator +(const C &c)const{ return C(x+c.x); }
 	C operator -(const C &c)const{ return C(x-c.x); }
 	C operator *(const C &c)const{ return C(x*c.x); }
-	C operator /(const C &c)const{ return C(x*c.anti()); }
-}
+	C operator /(const C &c)const{ return (*this)*c.anti(); }
+	void out(){
+		cout<<x<<endl;
+	}
+};
+
+typedef C<long long> mType;
 \end{lstlisting}
