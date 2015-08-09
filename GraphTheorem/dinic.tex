@@ -1,5 +1,8 @@
 \subsection{Dinic}
 \begin{lstlisting}
+#include <vector>
+#include <queue>
+
 struct e_t{ 
 	int to, cap, rev;
 	e_t(int to, int cap, int rev):to(to), cap(cap), rev(rev){}
@@ -13,7 +16,8 @@ public:
 	int s, t;
 
 	bool levelize(){
-		queue<int> q; fill(lev, -1);
+		queue<int> q; 
+		memset(lev, -1, sizeof(lev));
 		q.push(s), lev[s]=0;
 		while (!q.empty()){
 			int i=q.front(); q.pop();
@@ -47,15 +51,15 @@ public:
 	}
 
 	void add(int i, int j, int c){
-		a[i].pb(e_t(j, c, sz(a[j])));
-		a[j].pb(e_t(i, 0, sz(a[i])-1));
+		a[i].push_back(e_t(j, c, sz(a[j])));
+		a[j].push_back(e_t(i, 0, sz(a[i])-1));
 	}
 
 	int maxFlow(){
 		int tot=0, tmp;
 		while (levelize()){
-			fill(done, 0);
-			while (tmp = augment(s, INF))
+			memset(done, 0, sizeof(done));
+			while ( (tmp = augment(s, INF)) )
 				tot += tmp;
 		}
 		return tot;
