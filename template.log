@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.7.23)  23 JUL 2015 10:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.7.23)  9 AUG 2015 09:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -137,10 +137,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 Here is how much of TeX's memory you used:
  2110 strings out of 493090
  28004 string characters out of 6134868
- 257919 words of memory out of 5000000
+ 259919 words of memory out of 5000000
  5550 multiletter control sequences out of 15000+600000
  6909 words of font info for 26 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  33i,5n,58p,229b,1475s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.dvi (14 pages, 71884 bytes).
+Output written on template.dvi (14 pages, 71968 bytes).
